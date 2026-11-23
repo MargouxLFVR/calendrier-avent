@@ -18,63 +18,66 @@ body {
   text-align: center;
   color: #fff8e8;
   background:
-    radial-gradient(circle at 15% 15%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 10% 15%, #ffffff 2px, transparent 3px),
     radial-gradient(circle at 80% 35%, #ffffff 2px, transparent 3px),
-    linear-gradient(160deg, #173d35, #285b49 55%, #102f2a);
-  background-size: 75px 75px, 110px 110px, auto;
+    radial-gradient(circle at 35% 75%, #ffffff 2px, transparent 3px),
+    linear-gradient(160deg, #245b45, #397653, #173c32);
+  background-size: 90px 90px, 120px 120px, 140px 140px, auto;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
+/* TITRE */
+
 .decoration {
   font-size: 30px;
-  letter-spacing: 9px;
+  letter-spacing: 8px;
   margin-bottom: 12px;
 }
 
 h1 {
-  color: #ffe3a0;
-  font-family: Georgia, serif;
+  color: #ffdf83;
   font-size: clamp(27px, 6vw, 43px);
   margin: 10px 0;
-  text-shadow: 2px 3px 3px #351d16;
+  text-shadow: 3px 4px 0 #8c3026;
+  transform: rotate(-1deg);
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 17px;
   color: #fff4d9;
   margin-bottom: 28px;
 }
 
-/* LE CHALET */
+/* CHALET */
 
 .chalet {
   position: relative;
   max-width: 650px;
-  margin: 75px auto 25px;
+  margin: 85px auto 25px;
   padding: 0 18px 25px;
-  border: 8px solid #71351e;
-  border-radius: 15px;
+  border: 7px solid #69351f;
+  border-radius: 25px 25px 12px 12px;
   background:
     repeating-linear-gradient(
       0deg,
-      #a85c32 0px,
-      #a85c32 24px,
-      #914522 25px,
-      #914522 28px
+      #ad6339 0px,
+      #ad6339 23px,
+      #914522 24px,
+      #914522 27px
     );
   box-shadow:
     0 12px 30px #0007,
     inset 0 0 25px #542313;
 }
 
-/* TOIT ENNEIGE */
+/* TOIT */
 
 .roof {
   position: relative;
-  margin: -83px -35px 35px;
-  height: 110px;
-  background: linear-gradient(160deg, #a83b29, #74291f);
+  margin: -88px -35px 35px;
+  height: 115px;
+  background: linear-gradient(160deg, #bd4934, #85291f);
   clip-path: polygon(50% 0, 100% 75%, 95% 100%, 5% 100%, 0 75%);
   filter: drop-shadow(0 5px 2px #fff);
 }
@@ -82,31 +85,48 @@ h1 {
 .roof::before {
   content: "❄️  ❄️  ❄️  ❄️  ❄️  ❄️";
   position: absolute;
-  top: 65px;
+  top: 67px;
   left: 0;
   right: 0;
-  color: white;
-  font-size: 23px;
+  font-size: 22px;
   letter-spacing: 5px;
 }
 
-/* PANNEAU DU CHALET */
+/* PETIT BONHOMME DE NEIGE */
+
+.snowman {
+  position: absolute;
+  right: -27px;
+  top: -92px;
+  font-size: 65px;
+  transform: rotate(10deg);
+  z-index: 5;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(10deg) translateY(0); }
+  50% { transform: rotate(4deg) translateY(-7px); }
+}
+
+/* PANNEAU */
 
 .sign {
   position: relative;
   margin: -5px auto 25px;
   max-width: 480px;
   padding: 18px 10px;
-  background: linear-gradient(135deg, #f4d99c, #d5a85f);
+  background: linear-gradient(135deg, #f8dfa6, #dcb66c);
   border: 5px solid #75401e;
-  border-radius: 12px;
+  border-radius: 18px 10px 18px 10px;
   box-shadow: 0 5px 8px #351c15;
-  color: #8c2c20;
+  color: #8c3026;
+  transform: rotate(-1deg);
 }
 
 .sign h2 {
   font-family: Georgia, serif;
-  font-size: clamp(21px, 5vw, 32px);
+  font-size: clamp(21px, 5vw, 31px);
   margin: 0 0 8px;
 }
 
@@ -119,18 +139,24 @@ h1 {
 /* GUIRLANDE */
 
 .lights {
-  font-size: 23px;
+  font-size: 24px;
   letter-spacing: 5px;
   margin: 10px auto 25px;
   animation: twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle {
-  from { opacity: .65; }
-  to { opacity: 1; text-shadow: 0 0 13px #ffe49a; }
+  from {
+    opacity: .7;
+    text-shadow: none;
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 15px #ffe49a;
+  }
 }
 
-/* CALENDRIER */
+/* PORTES */
 
 .grid {
   display: grid;
@@ -144,8 +170,8 @@ h1 {
   position: relative;
   min-width: 0;
   min-height: 105px;
-  border: 3px solid #f7dca2;
-  border-radius: 12px;
+  border: 3px solid #ffe6a8;
+  border-radius: 17px 17px 10px 10px;
   color: #fff4dc;
   cursor: pointer;
   box-shadow: 0 5px 8px #351c15;
@@ -160,11 +186,11 @@ h1 {
 }
 
 .door:nth-child(4n+1) {
-  background: linear-gradient(145deg, #b83229, #7c201d);
+  background: linear-gradient(145deg, #bd4035, #84251f);
 }
 
 .door:nth-child(4n+2) {
-  background: linear-gradient(145deg, #397b4e, #205137);
+  background: linear-gradient(145deg, #478454, #205137);
 }
 
 .door:nth-child(4n+3) {
@@ -176,18 +202,17 @@ h1 {
 }
 
 .door:not(:disabled):hover {
-  transform: translateY(-5px) scale(1.04);
+  transform: translateY(-5px) rotate(-3deg) scale(1.04);
   box-shadow: 0 8px 18px #ffe7a866;
-}
-
-.door:disabled {
-  cursor: not-allowed;
-  opacity: .58;
-  filter: saturate(.65);
 }
 
 .door .picture {
   font-size: 29px;
+  transition: transform .25s;
+}
+
+.door:not(:disabled):hover .picture {
+  transform: rotate(15deg) scale(1.2);
 }
 
 .door .number {
@@ -195,7 +220,13 @@ h1 {
   font-size: 16px;
 }
 
-/* CASE DU JOUR ILLUMINEE */
+.door:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+  filter: saturate(.6);
+}
+
+/* CASE DU JOUR */
 
 .door.today {
   opacity: 1;
@@ -207,9 +238,7 @@ h1 {
 
 @keyframes glow {
   from {
-    box-shadow:
-      0 0 8px #ffdf75,
-      0 0 15px #ffc34d;
+    box-shadow: 0 0 8px #ffdf75, 0 0 15px #ffc34d;
   }
   to {
     box-shadow:
@@ -236,8 +265,14 @@ h1 {
 }
 
 @keyframes pop {
-  from { opacity: 0; transform: scale(.85); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 #message h2 {
@@ -266,28 +301,39 @@ h1 {
   background: #74251f;
 }
 
+/* BAS DU CHALET */
+
+.snow {
+  font-size: 25px;
+  margin: 20px 0 5px;
+}
+
 .footer {
   margin-top: 30px;
   font-size: 15px;
   line-height: 1.8;
   color: #ffe7b4;
+  font-weight: bold;
 }
 
-.snow {
-  font-size: 25px;
-  margin: 15px 0;
-}
+/* TELEPHONE */
 
 @media(max-width: 430px) {
   .chalet {
     padding: 0 10px 20px;
-    margin-top: 65px;
+    margin-top: 70px;
   }
 
   .roof {
     margin-left: -22px;
     margin-right: -22px;
     height: 90px;
+  }
+
+  .snowman {
+    right: -20px;
+    top: -75px;
+    font-size: 48px;
   }
 
   .grid {
@@ -307,6 +353,13 @@ h1 {
     font-size: 13px;
   }
 }
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 </style>
 </head>
 
@@ -317,16 +370,18 @@ h1 {
 <h1>✨ Calendrier de la bonne humeur ✨</h1>
 
 <p class="subtitle">
-  24 jours, 24 surprises et plein de bonheur ! 💌
+  24 jours, 24 surprises ! 🎁
 </p>
 
 <div class="chalet">
 
   <div class="roof"></div>
 
+  <div class="snowman">⛄</div>
+
   <div class="sign">
-    <h2>🎄 Joyeux Noël 🎄</h2>
-    <p>Un petit chalet rempli de surprises et de bonheur !</p>
+    <h2>🎄 Coucou, c'est Noël ! 🎄</h2>
+    <p>Allez, viens voir ce qui se cache derrière les portes...</p>
   </div>
 
   <div class="lights">
@@ -398,19 +453,21 @@ const calendar = document.getElementById("calendar");
 
 let highlightedDay = null;
 
-// Déterminer la case à illuminer.
-// Avant le 1er décembre : la case 1.
-// Du 1er au 24 décembre : la case du jour.
-// Après le 24 décembre : aucune.
-if (today.getFullYear() < YEAR ||
-   (today.getFullYear() === YEAR && today.getMonth() < 11)) {
+// Déterminer la case à illuminer
+if (
+  today.getFullYear() < YEAR ||
+  (today.getFullYear() === YEAR && today.getMonth() < 11)
+) {
   highlightedDay = 0;
-} else if (today.getFullYear() === YEAR &&
-           today.getMonth() === 11 &&
-           today.getDate() <= 24) {
+} else if (
+  today.getFullYear() === YEAR &&
+  today.getMonth() === 11 &&
+  today.getDate() <= 24
+) {
   highlightedDay = today.getDate() - 1;
 }
 
+// Création des 24 portes
 for (let i = 0; i < 24; i++) {
 
   const door = document.createElement("button");
@@ -418,12 +475,10 @@ for (let i = 0; i < 24; i++) {
 
   const unlock = new Date(YEAR, 11, i + 1);
 
-  // Les jours passés et le jour actuel sont accessibles.
   const available = today >= unlock;
 
   door.disabled = !available;
 
-  // Illuminer uniquement la case du jour.
   if (i === highlightedDay) {
     door.classList.add("today");
   }

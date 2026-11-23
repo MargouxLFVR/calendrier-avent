@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>24 jours de bonheur 🎄</title>
+<style>
+body {
+  margin: 0;
+  padding: 25px 15px;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #42345c;
+  background: linear-gradient(135deg,#fff1d6,#e5eaff,#ffe0ed);
+}
+h1 { color:#784bb0; font-size:2em; }
+.subtitle { margin-bottom:25px; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  max-width:480px;
+  margin:auto;
+}
+.door {
+  min-height:85px;
+  border:2px solid white;
+  border-radius:16px;
+  font-size:25px;
+  background:linear-gradient(145deg,#ffbd73,#ff83a8);
+  color:white;
+  box-shadow:0 4px 10px #8d72a333;
+  cursor:pointer;
+}
+.door:nth-child(3n) {
+  background:linear-gradient(145deg,#65c9c7,#6489db);
+}
+.door:nth-child(3n+1) {
+  background:linear-gradient(145deg,#a78be8,#ef91c3);
+}
+.door:disabled { opacity:.42; cursor:not-allowed; }
+.door span { display:block; font-size:13px; margin-top:5px; }
+#message {
+  display:none;
+  max-width:400px;
+  margin:25px auto;
+  padding:25px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 5px 20px #77628b33;
+  line-height:1.7;
+}
+</style>
+</head>
+<body>
+<h1>✨ 24 jours de bonne humeur ✨</h1>
+<p class="subtitle">Un petit message par jour jusquà Noël 💌</p>
+
+<div class="grid" id="calendar"></div>
+
+<div id="message">
+  <h2 id="dayTitle"></h2>
+  <p id="dayMessage"></p>
+  <p>✨ Je t'envoie plein de bonheur ! ✨</p>
+</div>
+
+<script>
+// REMPLACE LES TEXTES CI-DESSOUS PAR TES MESSAGES
+const messages = [
+"Ton message du 1er décembre",
+"Ton message du 2 décembre",
+"Ton message du 3 décembre",
+"Ton message du 4 décembre",
+"Ton message du 5 décembre",
+"Ton message du 6 décembre",
+"Ton message du 7 décembre",
+"Ton message du 8 décembre",
+"Ton message du 9 décembre",
+"Ton message du 10 décembre",
+"Ton message du 11 décembre",
+"Ton message du 12 décembre",
+"Ton message du 13 décembre",
+"Ton message du 14 décembre",
+"Ton message du 15 décembre",
+"Ton message du 16 décembre",
+"Ton message du 17 décembre",
+"Ton message du 18 décembre",
+"Ton message du 19 décembre",
+"Ton message du 20 décembre",
+"Ton message du 21 décembre",
+"Ton message du 22 décembre",
+"Ton message du 23 décembre",
+"Ton message du 24 décembre ❤️"
+];
+
+const today = new Date();
+const start = new Date(2026, 11, 1);
+const calendar = document.getElementById("calendar");
+
+for(let i=0; i<24; i++){
+  const door = document.createElement("button");
+  door.className = "door";
+  const unlock = new Date(2026, 11, i+1);
+  const available = today >= unlock;
+
+  door.disabled = !available;
+  door.innerHTML = `${available ? "🎁" : "🔒"}<span>${i+1} décembre</span>`;
+
+  if(available){
+    door.onclick = () => {
+      document.getElementById("dayTitle").textContent =
+        `✨ Jour ${i+1} ✨`;
+      document.getElementById("dayMessage").textContent =
+        messages[i];
+      document.getElementById("message").style.display = "block";
+      document.getElementById("message").scrollIntoView({
+        behavior:"smooth"
+      });
+    };
+  }
+  calendar.appendChild(door);
+}
+</script>
+</body>
+</html>

@@ -529,6 +529,85 @@ h1 {
     border-radius: 30px 30px 20px 20px;
   }
 }
+/* 🌈 COULEURS DE NOËL PLUS PÉTILLANTES */
+
+/* Fond vert sapin */
+body {
+  background:
+    radial-gradient(circle at 10% 15%, #ffffff 2px, transparent 3px),
+    radial-gradient(circle at 80% 35%, #ffffff 2px, transparent 3px),
+    radial-gradient(circle at 35% 75%, #ffffff 2px, transparent 3px),
+    linear-gradient(145deg, #087443, #12633f, #06452f);
+}
+
+/* Toit rouge cerise */
+.roof {
+  background: linear-gradient(160deg, #f0523e, #c5222c);
+  box-shadow:
+    inset 0 -8px 0 #a51c27,
+    0 5px 8px #51251d66;
+}
+
+/* Bois du chalet plus doré */
+.chalet {
+  background: repeating-linear-gradient(
+    0deg,
+    #d99555 0px,
+    #d99555 23px,
+    #bd743e 24px,
+    #bd743e 28px
+  );
+  border-color: #814322;
+}
+
+/* Panneau crème lumineux */
+.sign {
+  background: linear-gradient(135deg, #fff2bd, #ffd978);
+  border-color: #a85c25;
+}
+
+/* Portes : rouge, vert, turquoise et or */
+.door:nth-child(4n+1) {
+  background: linear-gradient(145deg, #f04b3e, #c5222c);
+}
+
+.door:nth-child(4n+2) {
+  background: linear-gradient(145deg, #20a66b, #087443);
+}
+
+.door:nth-child(4n+3) {
+  background: linear-gradient(145deg, #ffd653, #e99b19);
+}
+
+.door:nth-child(4n) {
+  background: linear-gradient(145deg, #35b9b2, #16817f);
+}
+
+/* Contours dorés */
+.door {
+  border-color: #ffe9a6;
+}
+
+/* Porte du jour encore plus lumineuse */
+.door.today {
+  border-color: #fff5a8;
+  box-shadow:
+    0 0 15px #ffdf55,
+    0 0 30px #ffc629;
+}
+
+/* Guirlande scintillante */
+.lights {
+  background: #8b4c2c55;
+  text-shadow: 0 0 12px #fff1a1;
+}
+
+/* Titre doré */
+h1 {
+  color: #ffdf69;
+  text-shadow: 3px 4px 0 #a62925;
+}
+
 
 
 </style>
@@ -690,5 +769,6 @@ function closeMessage() {
 
 </body>
 </html>
+
 
 

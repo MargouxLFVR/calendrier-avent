@@ -360,6 +360,110 @@ h1 {
     transition: none !important;
   }
 }
+/* ✨ PETIT RELOOKING DU CHALET ✨ */
+
+.chalet {
+  max-width: 850px;
+  border: 6px solid #704027;
+  border-radius: 28px 28px 15px 15px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #bd8055 0px,
+      #bd8055 23px,
+      #a96842 24px,
+      #a96842 28px
+    );
+  box-shadow:
+    0 15px 35px #102b20aa,
+    inset 0 0 25px #67351e66;
+}
+
+/* Toit plus chaleureux */
+.roof {
+  background:
+    radial-gradient(ellipse at 15% 90%, #e8b6a0 0 3px, transparent 4px),
+    radial-gradient(ellipse at 80% 85%, #e8b6a0 0 4px, transparent 5px),
+    linear-gradient(160deg, #c6533d, #963326);
+  filter: drop-shadow(0 6px 3px #49271c88);
+}
+
+/* Petite neige sur le toit */
+.roof::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 4%;
+  width: 92%;
+  height: 13px;
+  background: #fff5e5;
+  border-radius: 50% 50% 8px 8px;
+  box-shadow: 0 3px 5px #542b1b55;
+}
+
+/* Panneau plus discret */
+.sign {
+  max-width: 430px;
+  padding: 14px 12px;
+  border-radius: 22px;
+  border: 4px solid #87502c;
+  background: linear-gradient(135deg, #fff0c5, #e8c984);
+  box-shadow:
+    0 6px 10px #351c1577,
+    inset 0 2px 5px #fff9df;
+}
+
+/* Guirlande plus lumineuse */
+.lights {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: #75432b55;
+  text-shadow: 0 0 9px #ffe6a0;
+}
+
+/* Portes plus douces et travaillées */
+.door {
+  border: 3px solid #ffe9b8;
+  border-radius: 20px 20px 13px 13px;
+  box-shadow:
+    0 5px 9px #351c1577,
+    inset 0 0 12px #ffffff22;
+}
+
+.door::after {
+  content: " ";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffdc82;
+  box-shadow: 0 0 5px #ffe9a5;
+}
+
+.door.today {
+  border-color: #fff3ae;
+}
+
+/* Bas du chalet */
+.snow {
+  text-shadow: 0 0 10px #fff1c4;
+  padding-bottom: 5px;
+}
+
+/* Adaptation téléphone */
+@media(max-width: 430px) {
+  .chalet {
+    max-width: 100%;
+  }
+
+  .sign {
+    padding: 12px 8px;
+  }
+}
+
 </style>
 </head>
 
@@ -519,3 +623,4 @@ function closeMessage() {
 
 </body>
 </html>
+

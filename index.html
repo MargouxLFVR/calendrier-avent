@@ -21,8 +21,14 @@ body {
     radial-gradient(circle at 10% 15%, #ffffff 2px, transparent 3px),
     radial-gradient(circle at 80% 35%, #ffffff 2px, transparent 3px),
     radial-gradient(circle at 35% 75%, #ffffff 2px, transparent 3px),
-    linear-gradient(160deg, #245b45, #397653, #173c32);
-  background-size: 90px 90px, 120px 120px, 140px 140px, auto;
+    radial-gradient(circle at 65% 10%, #b9e9d0 2px, transparent 4px),
+    linear-gradient(145deg, #287d53, #176342, #0b4935);
+  background-size:
+    90px 90px,
+    120px 120px,
+    140px 140px,
+    170px 170px,
+    auto;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -36,10 +42,10 @@ body {
 }
 
 h1 {
-  color: #ffdf83;
+  color: #ffdf69;
   font-size: clamp(27px, 6vw, 43px);
   margin: 10px 0;
-  text-shadow: 3px 4px 0 #8c3026;
+  text-shadow: 3px 4px 0 #a62925;
   transform: rotate(-1deg);
 }
 
@@ -53,33 +59,35 @@ h1 {
 
 .chalet {
   position: relative;
-  max-width: 650px;
+  max-width: 850px;
   margin: 85px auto 25px;
   padding: 0 18px 25px;
-  border: 7px solid #69351f;
-  border-radius: 25px 25px 12px 12px;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      #ad6339 0px,
-      #ad6339 23px,
-      #914522 24px,
-      #914522 27px
-    );
+  border: 7px solid #805033;
+  border-radius: 42px 42px 28px 28px;
+  background: repeating-linear-gradient(
+    0deg,
+    #d99555 0px,
+    #d99555 23px,
+    #bd743e 24px,
+    #bd743e 28px
+  );
   box-shadow:
-    0 12px 30px #0007,
-    inset 0 0 25px #542313;
+    0 15px 35px #102b2080,
+    inset 0 0 30px #67351e55;
 }
 
-/* TOIT */
+/* TOIT ARRONDI */
 
 .roof {
   position: relative;
-  margin: -88px -35px 35px;
+  margin: -88px -25px 35px;
   height: 115px;
-  background: linear-gradient(160deg, #bd4934, #85291f);
-  clip-path: polygon(50% 0, 100% 75%, 95% 100%, 5% 100%, 0 75%);
-  filter: drop-shadow(0 5px 2px #fff);
+  border-radius: 50% 50% 18px 18px / 75% 75% 18px 18px;
+  background: linear-gradient(160deg, #f0523e, #c5222c);
+  box-shadow:
+    inset 0 -8px 0 #a51c27,
+    0 5px 8px #51251d66;
+  z-index: 1;
 }
 
 .roof::before {
@@ -92,21 +100,32 @@ h1 {
   letter-spacing: 5px;
 }
 
-/* PETIT BONHOMME DE NEIGE */
+.roof::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 3%;
+  width: 94%;
+  height: 15px;
+  background: #fff5e5;
+  border-radius: 50% 50% 40% 40%;
+}
+
+/* BONHOMME DE NEIGE */
 
 .snowman {
   position: absolute;
   right: -27px;
   top: -92px;
   font-size: 65px;
-  transform: rotate(10deg);
+  transform: rotate(5deg);
   z-index: 5;
   animation: bounce 2s infinite ease-in-out;
 }
 
 @keyframes bounce {
-  0%, 100% { transform: rotate(10deg) translateY(0); }
-  50% { transform: rotate(4deg) translateY(-7px); }
+  0%, 100% { transform: rotate(5deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(-7px); }
 }
 
 /* PANNEAU */
@@ -114,14 +133,16 @@ h1 {
 .sign {
   position: relative;
   margin: -5px auto 25px;
-  max-width: 480px;
-  padding: 18px 10px;
-  background: linear-gradient(135deg, #f8dfa6, #dcb66c);
-  border: 5px solid #75401e;
-  border-radius: 18px 10px 18px 10px;
-  box-shadow: 0 5px 8px #351c15;
+  max-width: 430px;
+  padding: 14px 12px;
+  background: linear-gradient(135deg, #fff2bd, #ffd978);
+  border: 5px solid #a85c25;
+  border-radius: 30px;
+  box-shadow:
+    0 7px 12px #351c1577,
+    inset 0 2px 5px #fff9df;
   color: #8c3026;
-  transform: rotate(-1deg);
+  transform: rotate(-0.5deg);
 }
 
 .sign h2 {
@@ -139,9 +160,14 @@ h1 {
 /* GUIRLANDE */
 
 .lights {
+  display: inline-block;
   font-size: 24px;
   letter-spacing: 5px;
   margin: 10px auto 25px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: #8b4c2c55;
+  text-shadow: 0 0 12px #fff1a1;
   animation: twinkle 2s infinite alternate;
 }
 
@@ -156,13 +182,13 @@ h1 {
   }
 }
 
-/* PORTES */
+/* LES 24 PORTES */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 13px;
-  max-width: 550px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -170,11 +196,13 @@ h1 {
   position: relative;
   min-width: 0;
   min-height: 105px;
-  border: 3px solid #ffe6a8;
-  border-radius: 17px 17px 10px 10px;
+  border: 3px solid #ffe9a6;
+  border-radius: 27px 27px 19px 19px;
   color: #fff4dc;
   cursor: pointer;
-  box-shadow: 0 5px 8px #351c15;
+  box-shadow:
+    0 6px 10px #351c1577,
+    inset 0 0 15px #ffffff22;
   transition: transform .25s, box-shadow .25s;
   display: flex;
   flex-direction: column;
@@ -185,20 +213,36 @@ h1 {
   overflow: hidden;
 }
 
+/* Couleurs des portes */
+
 .door:nth-child(4n+1) {
-  background: linear-gradient(145deg, #bd4035, #84251f);
+  background: linear-gradient(145deg, #f04b3e, #c5222c);
 }
 
 .door:nth-child(4n+2) {
-  background: linear-gradient(145deg, #478454, #205137);
+  background: linear-gradient(145deg, #20a66b, #087443);
 }
 
 .door:nth-child(4n+3) {
-  background: linear-gradient(145deg, #e5bd70, #ae792f);
+  background: linear-gradient(145deg, #ffd653, #e99b19);
 }
 
 .door:nth-child(4n) {
-  background: linear-gradient(145deg, #a83e34, #74251f);
+  background: linear-gradient(145deg, #35b9b2, #16817f);
+}
+
+/* Petite poignée dorée */
+
+.door::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffdc82;
+  box-shadow: 0 0 5px #ffe9a5;
 }
 
 .door:not(:disabled):hover {
@@ -231,7 +275,7 @@ h1 {
 .door.today {
   opacity: 1;
   filter: none;
-  border: 3px solid #fff2a1;
+  border: 3px solid #fff5a8;
   animation: glow 1.5s infinite alternate;
   z-index: 2;
 }
@@ -243,7 +287,7 @@ h1 {
   to {
     box-shadow:
       0 0 15px #fff2a1,
-      0 0 30px #ffbd39,
+      0 0 30px #ffc629,
       0 0 45px #ffdf75;
     transform: scale(1.045);
   }
@@ -258,7 +302,7 @@ h1 {
   padding: 25px;
   background: #fff8e8;
   border: 5px solid #d9ae60;
-  border-radius: 20px;
+  border-radius: 25px;
   color: #743326;
   box-shadow: 0 8px 25px #0005;
   animation: pop .35s ease;
@@ -288,17 +332,17 @@ h1 {
 
 .close {
   border: 0;
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 12px 24px;
   color: white;
-  background: #a12e25;
+  background: #d52f35;
   cursor: pointer;
   font-size: 15px;
   font-family: inherit;
 }
 
 .close:hover {
-  background: #74251f;
+  background: #a51c27;
 }
 
 /* BAS DU CHALET */
@@ -306,6 +350,8 @@ h1 {
 .snow {
   font-size: 25px;
   margin: 20px 0 5px;
+  padding-bottom: 5px;
+  text-shadow: 0 0 10px #fff1c4;
 }
 
 .footer {
@@ -319,21 +365,36 @@ h1 {
 /* TELEPHONE */
 
 @media(max-width: 430px) {
+  body {
+    padding: 20px 8px 35px;
+  }
+
   .chalet {
     padding: 0 10px 20px;
     margin-top: 70px;
+    border-radius: 30px 30px 20px 20px;
   }
 
   .roof {
-    margin-left: -22px;
-    margin-right: -22px;
+    margin-left: -18px;
+    margin-right: -18px;
     height: 90px;
+  }
+
+  .roof::before {
+    top: 50px;
+    font-size: 17px;
+    letter-spacing: 2px;
   }
 
   .snowman {
     right: -20px;
     top: -75px;
     font-size: 48px;
+  }
+
+  .sign {
+    padding: 12px 8px;
   }
 
   .grid {
@@ -343,6 +404,7 @@ h1 {
   .door {
     min-height: 82px;
     border-width: 2px;
+    border-radius: 20px 20px 14px 14px;
   }
 
   .door .picture {
@@ -360,256 +422,6 @@ h1 {
     transition: none !important;
   }
 }
-/* ✨ PETIT RELOOKING DU CHALET ✨ */
-
-.chalet {
-  max-width: 850px;
-  border: 6px solid #704027;
-  border-radius: 28px 28px 15px 15px;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      #bd8055 0px,
-      #bd8055 23px,
-      #a96842 24px,
-      #a96842 28px
-    );
-  box-shadow:
-    0 15px 35px #102b20aa,
-    inset 0 0 25px #67351e66;
-}
-
-/* Toit plus chaleureux */
-.roof {
-  background:
-    radial-gradient(ellipse at 15% 90%, #e8b6a0 0 3px, transparent 4px),
-    radial-gradient(ellipse at 80% 85%, #e8b6a0 0 4px, transparent 5px),
-    linear-gradient(160deg, #c6533d, #963326);
-  filter: drop-shadow(0 6px 3px #49271c88);
-}
-
-/* Petite neige sur le toit */
-.roof::after {
-  content: " ";
-  position: absolute;
-  bottom: 0;
-  left: 4%;
-  width: 92%;
-  height: 13px;
-  background: #fff5e5;
-  border-radius: 50% 50% 8px 8px;
-  box-shadow: 0 3px 5px #542b1b55;
-}
-
-/* Panneau plus discret */
-.sign {
-  max-width: 430px;
-  padding: 14px 12px;
-  border-radius: 22px;
-  border: 4px solid #87502c;
-  background: linear-gradient(135deg, #fff0c5, #e8c984);
-  box-shadow:
-    0 6px 10px #351c1577,
-    inset 0 2px 5px #fff9df;
-}
-
-/* Guirlande plus lumineuse */
-.lights {
-  display: inline-block;
-  padding: 7px 20px;
-  border-radius: 30px;
-  background: #75432b55;
-  text-shadow: 0 0 9px #ffe6a0;
-}
-
-/* Portes plus douces et travaillées */
-.door {
-  border: 3px solid #ffe9b8;
-  border-radius: 20px 20px 13px 13px;
-  box-shadow:
-    0 5px 9px #351c1577,
-    inset 0 0 12px #ffffff22;
-}
-
-.door::after {
-  content: " ";
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ffdc82;
-  box-shadow: 0 0 5px #ffe9a5;
-}
-
-.door.today {
-  border-color: #fff3ae;
-}
-
-/* Bas du chalet */
-.snow {
-  text-shadow: 0 0 10px #fff1c4;
-  padding-bottom: 5px;
-}
-
-/* Adaptation téléphone */
-@media(max-width: 430px) {
-  .chalet {
-    max-width: 100%;
-  }
-
-  .sign {
-    padding: 12px 8px;
-  }
-}
-/* 🎄 UN CHALET PLUS DOUX ET ARRONDI */
-
-.chalet {
-  border-radius: 42px 42px 28px 28px;
-  border: 7px solid #805033;
-  box-shadow:
-    0 15px 35px #102b2080,
-    inset 0 0 30px #67351e55;
-}
-
-/* Toit arrondi façon petit chalet de conte */
-.roof {
-  clip-path: none;
-  height: 115px;
-  margin: -88px -25px 35px;
-  border-radius: 50% 50% 18px 18px / 75% 75% 18px 18px;
-  background: linear-gradient(160deg, #d4664d, #a6382b);
-  box-shadow: inset 0 -8px 0 #873327;
-}
-
-/* Neige plus douce */
-.roof::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 3%;
-  width: 94%;
-  height: 15px;
-  background: #fff5e5;
-  border-radius: 50% 50% 40% 40%;
-}
-
-/* Panneau façon enseigne de conte */
-.sign {
-  border-radius: 30px;
-  border-width: 5px;
-  transform: rotate(-0.5deg);
-  box-shadow: 0 7px 12px #351c1577;
-}
-
-/* Portes arrondies */
-.door {
-  border-radius: 27px 27px 19px 19px;
-  border-width: 4px;
-  box-shadow:
-    0 6px 10px #351c1577,
-    inset 0 0 15px #ffffff22;
-}
-
-/* Bonhomme de neige */
-.snowman {
-  transform: rotate(5deg);
-}
-
-/* Sur téléphone */
-@media(max-width: 430px) {
-  .roof {
-    margin-left: -18px;
-    margin-right: -18px;
-    height: 90px;
-  }
-
-  .chalet {
-    border-radius: 30px 30px 20px 20px;
-  }
-}
-/* 🌈 COULEURS DE NOËL PLUS PÉTILLANTES */
-
-/* Fond vert sapin */
-body {
-  background:
-    radial-gradient(circle at 10% 15%, #ffffff 2px, transparent 3px),
-    radial-gradient(circle at 80% 35%, #ffffff 2px, transparent 3px),
-    radial-gradient(circle at 35% 75%, #ffffff 2px, transparent 3px),
-    linear-gradient(145deg, #087443, #12633f, #06452f);
-}
-
-/* Toit rouge cerise */
-.roof {
-  background: linear-gradient(160deg, #f0523e, #c5222c);
-  box-shadow:
-    inset 0 -8px 0 #a51c27,
-    0 5px 8px #51251d66;
-}
-
-/* Bois du chalet plus doré */
-.chalet {
-  background: repeating-linear-gradient(
-    0deg,
-    #d99555 0px,
-    #d99555 23px,
-    #bd743e 24px,
-    #bd743e 28px
-  );
-  border-color: #814322;
-}
-
-/* Panneau crème lumineux */
-.sign {
-  background: linear-gradient(135deg, #fff2bd, #ffd978);
-  border-color: #a85c25;
-}
-
-/* Portes : rouge, vert, turquoise et or */
-.door:nth-child(4n+1) {
-  background: linear-gradient(145deg, #f04b3e, #c5222c);
-}
-
-.door:nth-child(4n+2) {
-  background: linear-gradient(145deg, #20a66b, #087443);
-}
-
-.door:nth-child(4n+3) {
-  background: linear-gradient(145deg, #ffd653, #e99b19);
-}
-
-.door:nth-child(4n) {
-  background: linear-gradient(145deg, #35b9b2, #16817f);
-}
-
-/* Contours dorés */
-.door {
-  border-color: #ffe9a6;
-}
-
-/* Porte du jour encore plus lumineuse */
-.door.today {
-  border-color: #fff5a8;
-  box-shadow:
-    0 0 15px #ffdf55,
-    0 0 30px #ffc629;
-}
-
-/* Guirlande scintillante */
-.lights {
-  background: #8b4c2c55;
-  text-shadow: 0 0 12px #fff1a1;
-}
-
-/* Titre doré */
-h1 {
-  color: #ffdf69;
-  text-shadow: 3px 4px 0 #a62925;
-}
-
-
-
 </style>
 </head>
 
@@ -724,7 +536,6 @@ for (let i = 0; i < 24; i++) {
   door.className = "door";
 
   const unlock = new Date(YEAR, 11, i + 1);
-
   const available = today >= unlock;
 
   door.disabled = !available;
@@ -769,6 +580,3 @@ function closeMessage() {
 
 </body>
 </html>
-
-
-

@@ -463,6 +463,73 @@ h1 {
     padding: 12px 8px;
   }
 }
+/* 🎄 UN CHALET PLUS DOUX ET ARRONDI */
+
+.chalet {
+  border-radius: 42px 42px 28px 28px;
+  border: 7px solid #805033;
+  box-shadow:
+    0 15px 35px #102b2080,
+    inset 0 0 30px #67351e55;
+}
+
+/* Toit arrondi façon petit chalet de conte */
+.roof {
+  clip-path: none;
+  height: 115px;
+  margin: -88px -25px 35px;
+  border-radius: 50% 50% 18px 18px / 75% 75% 18px 18px;
+  background: linear-gradient(160deg, #d4664d, #a6382b);
+  box-shadow: inset 0 -8px 0 #873327;
+}
+
+/* Neige plus douce */
+.roof::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 3%;
+  width: 94%;
+  height: 15px;
+  background: #fff5e5;
+  border-radius: 50% 50% 40% 40%;
+}
+
+/* Panneau façon enseigne de conte */
+.sign {
+  border-radius: 30px;
+  border-width: 5px;
+  transform: rotate(-0.5deg);
+  box-shadow: 0 7px 12px #351c1577;
+}
+
+/* Portes arrondies */
+.door {
+  border-radius: 27px 27px 19px 19px;
+  border-width: 4px;
+  box-shadow:
+    0 6px 10px #351c1577,
+    inset 0 0 15px #ffffff22;
+}
+
+/* Bonhomme de neige */
+.snowman {
+  transform: rotate(5deg);
+}
+
+/* Sur téléphone */
+@media(max-width: 430px) {
+  .roof {
+    margin-left: -18px;
+    margin-right: -18px;
+    height: 90px;
+  }
+
+  .chalet {
+    border-radius: 30px 30px 20px 20px;
+  }
+}
+
 
 </style>
 </head>
@@ -623,4 +690,5 @@ function closeMessage() {
 
 </body>
 </html>
+
 

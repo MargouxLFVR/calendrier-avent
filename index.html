@@ -5,113 +5,347 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calendrier de la bonne humeur</title>
+
 <style>
-* { box-sizing:border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin:0;
-  padding:25px 14px 45px;
+  margin: 0;
+  padding: 25px 12px 45px;
   font-family: "Trebuchet MS", sans-serif;
-  text-align:center;
-  color:#49385f;
-  background:linear-gradient(145deg,#fff5dc,#e3f5ff,#f8e5ff);
-  min-height:100vh;
+  text-align: center;
+  color: #fff8e8;
+  background:
+    radial-gradient(circle at 15% 15%, #ffffff 1px, transparent 2px),
+    radial-gradient(circle at 80% 35%, #ffffff 2px, transparent 3px),
+    linear-gradient(160deg, #173d35, #285b49 55%, #102f2a);
+  background-size: 75px 75px, 110px 110px, auto;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
+
+.decoration {
+  font-size: 30px;
+  letter-spacing: 9px;
+  margin-bottom: 12px;
+}
+
 h1 {
-  color:#7650b9;
-  font-size:clamp(27px,6vw,43px);
-  margin:15px 0 8px;
+  color: #ffe3a0;
+  font-family: Georgia, serif;
+  font-size: clamp(27px, 6vw, 43px);
+  margin: 10px 0;
+  text-shadow: 2px 3px 3px #351d16;
 }
-.subtitle { font-size:16px; margin-bottom:25px; }
-.decoration { font-size:30px; letter-spacing:8px; }
+
+.subtitle {
+  font-size: 16px;
+  color: #fff4d9;
+  margin-bottom: 28px;
+}
+
+/* LE CHALET */
+
+.chalet {
+  position: relative;
+  max-width: 650px;
+  margin: 75px auto 25px;
+  padding: 0 18px 25px;
+  border: 8px solid #71351e;
+  border-radius: 15px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #a85c32 0px,
+      #a85c32 24px,
+      #914522 25px,
+      #914522 28px
+    );
+  box-shadow:
+    0 12px 30px #0007,
+    inset 0 0 25px #542313;
+}
+
+/* TOIT ENNEIGE */
+
+.roof {
+  position: relative;
+  margin: -83px -35px 35px;
+  height: 110px;
+  background: linear-gradient(160deg, #a83b29, #74291f);
+  clip-path: polygon(50% 0, 100% 75%, 95% 100%, 5% 100%, 0 75%);
+  filter: drop-shadow(0 5px 2px #fff);
+}
+
+.roof::before {
+  content: "❄️  ❄️  ❄️  ❄️  ❄️  ❄️";
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 23px;
+  letter-spacing: 5px;
+}
+
+/* PANNEAU DU CHALET */
+
+.sign {
+  position: relative;
+  margin: -5px auto 25px;
+  max-width: 480px;
+  padding: 18px 10px;
+  background: linear-gradient(135deg, #f4d99c, #d5a85f);
+  border: 5px solid #75401e;
+  border-radius: 12px;
+  box-shadow: 0 5px 8px #351c15;
+  color: #8c2c20;
+}
+
+.sign h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(21px, 5vw, 32px);
+  margin: 0 0 8px;
+}
+
+.sign p {
+  margin: 0;
+  font-size: 14px;
+  color: #63401e;
+}
+
+/* GUIRLANDE */
+
+.lights {
+  font-size: 23px;
+  letter-spacing: 5px;
+  margin: 10px auto 25px;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .65; }
+  to { opacity: 1; text-shadow: 0 0 13px #ffe49a; }
+}
+
+/* CALENDRIER */
+
 .grid {
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-  max-width:560px;
-  margin:25px auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  max-width: 550px;
+  margin: 0 auto;
 }
+
 .door {
-  min-width:0;
-  min-height:112px;
-  border:3px solid white;
-  border-radius:19px;
-  color:white;
-  cursor:pointer;
-  box-shadow:0 5px 12px #55416b30;
-  transition:transform .2s, box-shadow .2s;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  font-family:inherit;
+  position: relative;
+  min-width: 0;
+  min-height: 105px;
+  border: 3px solid #f7dca2;
+  border-radius: 12px;
+  color: #fff4dc;
+  cursor: pointer;
+  box-shadow: 0 5px 8px #351c15;
+  transition: transform .25s, box-shadow .25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: inherit;
+  overflow: hidden;
 }
+
+.door:nth-child(4n+1) {
+  background: linear-gradient(145deg, #b83229, #7c201d);
+}
+
+.door:nth-child(4n+2) {
+  background: linear-gradient(145deg, #397b4e, #205137);
+}
+
+.door:nth-child(4n+3) {
+  background: linear-gradient(145deg, #e5bd70, #ae792f);
+}
+
+.door:nth-child(4n) {
+  background: linear-gradient(145deg, #a83e34, #74251f);
+}
+
 .door:not(:disabled):hover {
-  transform:translateY(-5px) rotate(-2deg);
-  box-shadow:0 9px 18px #55416b40;
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 8px 18px #ffe7a866;
 }
-.door:disabled { cursor:not-allowed; opacity:.58; }
-.door .picture { font-size:35px; }
-.door .number { font-weight:bold; font-size:16px; }
-.door:nth-child(6n+1) { background:#ed8b64; }
-.door:nth-child(6n+2) { background:#54bcb5; }
-.door:nth-child(6n+3) { background:#8d78cf; }
-.door:nth-child(6n+4) { background:#e7b94d; }
-.door:nth-child(6n+5) { background:#e879a4; }
-.door:nth-child(6n) { background:#5796d5; }
+
+.door:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+  filter: saturate(.65);
+}
+
+.door .picture {
+  font-size: 29px;
+}
+
+.door .number {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* CASE DU JOUR ILLUMINEE */
+
+.door.today {
+  opacity: 1;
+  filter: none;
+  border: 3px solid #fff2a1;
+  animation: glow 1.5s infinite alternate;
+  z-index: 2;
+}
+
+@keyframes glow {
+  from {
+    box-shadow:
+      0 0 8px #ffdf75,
+      0 0 15px #ffc34d;
+  }
+  to {
+    box-shadow:
+      0 0 15px #fff2a1,
+      0 0 30px #ffbd39,
+      0 0 45px #ffdf75;
+    transform: scale(1.045);
+  }
+}
+
+/* MESSAGE */
+
 #message {
-  display:none;
-  max-width:440px;
-  margin:25px auto;
-  padding:25px;
-  background:white;
-  border:3px solid #e9d6ff;
-  border-radius:24px;
-  box-shadow:0 8px 25px #55416b25;
-  animation:pop .35s ease;
+  display: none;
+  max-width: 440px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff8e8;
+  border: 5px solid #d9ae60;
+  border-radius: 20px;
+  color: #743326;
+  box-shadow: 0 8px 25px #0005;
+  animation: pop .35s ease;
 }
+
 @keyframes pop {
-  from { opacity:0; transform:scale(.85); }
-  to { opacity:1; transform:scale(1); }
+  from { opacity: 0; transform: scale(.85); }
+  to { opacity: 1; transform: scale(1); }
 }
-#message h2 { color:#8058bb; }
+
+#message h2 {
+  color: #a12e25;
+  font-family: Georgia, serif;
+}
+
 #dayMessage {
-  font-size:18px;
-  line-height:1.7;
-  white-space:pre-wrap;
+  font-size: 18px;
+  line-height: 1.7;
+  white-space: pre-wrap;
 }
+
 .close {
-  border:0;
-  border-radius:20px;
-  padding:10px 22px;
-  color:white;
-  background:#8d78cf;
-  cursor:pointer;
-  font-size:15px;
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 24px;
+  color: white;
+  background: #a12e25;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
 }
-.footer { margin-top:30px; font-size:14px; }
-@media(max-width:370px) {
-  .grid { gap:7px; }
-  .door { min-height:90px; }
-  .door .picture { font-size:28px; }
+
+.close:hover {
+  background: #74251f;
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #ffe7b4;
+}
+
+.snow {
+  font-size: 25px;
+  margin: 15px 0;
+}
+
+@media(max-width: 430px) {
+  .chalet {
+    padding: 0 10px 20px;
+    margin-top: 65px;
+  }
+
+  .roof {
+    margin-left: -22px;
+    margin-right: -22px;
+    height: 90px;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .door {
+    min-height: 82px;
+    border-width: 2px;
+  }
+
+  .door .picture {
+    font-size: 24px;
+  }
+
+  .door .number {
+    font-size: 13px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <div class="decoration">⭐ 🎁 ❄️ 🎄</div>
+
 <h1>✨ Calendrier de la bonne humeur ✨</h1>
+
 <p class="subtitle">
   24 jours, 24 surprises et plein de bonheur ! 💌
 </p>
 
-<div class="grid" id="calendar"></div>
+<div class="chalet">
+
+  <div class="roof"></div>
+
+  <div class="sign">
+    <h2>🎄 Joyeux Noël 🎄</h2>
+    <p>Un petit chalet rempli de surprises et de bonheur !</p>
+  </div>
+
+  <div class="lights">
+    ✨ 💡 ✨ 💡 ✨ 💡 ✨
+  </div>
+
+  <div class="grid" id="calendar"></div>
+
+  <div class="snow">❄️ 🎁 ❄️ 🎀 ❄️</div>
+
+</div>
 
 <div id="message">
   <h2 id="dayTitle"></h2>
   <p id="dayMessage"></p>
   <p>💖 Une petite dose de bonheur pour toi !</p>
-  <button class="close" onclick="closeMessage()">Fermer ✨</button>
+  <button class="close" onclick="closeMessage()">
+    Fermer ✨
+  </button>
 </div>
 
 <p class="footer">
@@ -120,8 +354,11 @@ h1 {
 </p>
 
 <script>
-// ✏️ REMPLACE LES TEXTES PAR TES 24 MESSAGES
 
+// ANNEE DU CALENDRIER
+const YEAR = 2026;
+
+// ✏️ TES 24 MESSAGES
 const messages = [
 "Ton message du 1er décembre",
 "Ton message du 2 décembre",
@@ -159,25 +396,50 @@ const decorations = [
 const today = new Date();
 const calendar = document.getElementById("calendar");
 
-for(let i=0; i<24; i++){
+let highlightedDay = null;
+
+// Déterminer la case à illuminer.
+// Avant le 1er décembre : la case 1.
+// Du 1er au 24 décembre : la case du jour.
+// Après le 24 décembre : aucune.
+if (today.getFullYear() < YEAR ||
+   (today.getFullYear() === YEAR && today.getMonth() < 11)) {
+  highlightedDay = 0;
+} else if (today.getFullYear() === YEAR &&
+           today.getMonth() === 11 &&
+           today.getDate() <= 24) {
+  highlightedDay = today.getDate() - 1;
+}
+
+for (let i = 0; i < 24; i++) {
+
   const door = document.createElement("button");
   door.className = "door";
 
-  const unlock = new Date(2026, 11, i+1);
-  const available =
-    today >= new Date(2026, 11, i+1);
+  const unlock = new Date(YEAR, 11, i + 1);
+
+  // Les jours passés et le jour actuel sont accessibles.
+  const available = today >= unlock;
 
   door.disabled = !available;
 
+  // Illuminer uniquement la case du jour.
+  if (i === highlightedDay) {
+    door.classList.add("today");
+  }
+
   door.innerHTML = `
-    <span class="picture">${available ? decorations[i] : "🔒"}</span>
-    <span class="number">${i+1} décembre</span>
+    <span class="picture">
+      ${available ? decorations[i] : "🔒"}
+    </span>
+    <span class="number">${i + 1} décembre</span>
   `;
 
-  if(available){
+  if (available) {
     door.onclick = () => {
+
       document.getElementById("dayTitle").textContent =
-        "✨ Surprise du "+(i+1)+" décembre ✨";
+        "✨ Surprise du " + (i + 1) + " décembre ✨";
 
       document.getElementById("dayMessage").textContent =
         messages[i];
@@ -185,8 +447,8 @@ for(let i=0; i<24; i++){
       document.getElementById("message").style.display = "block";
 
       document.getElementById("message").scrollIntoView({
-        behavior:"smooth",
-        block:"center"
+        behavior: "smooth",
+        block: "center"
       });
     };
   }
@@ -194,9 +456,11 @@ for(let i=0; i<24; i++){
   calendar.appendChild(door);
 }
 
-function closeMessage(){
-  document.getElementById("message").style.display="none";
+function closeMessage() {
+  document.getElementById("message").style.display = "none";
 }
+
 </script>
+
 </body>
 </html>
